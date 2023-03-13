@@ -1,6 +1,6 @@
 import styles from '../ContactForm/contactForm.module.css';
 
-import { getAllContacts } from 'redux/contacts/contacts-selectors';
+import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
 import { deleteContact } from 'redux/contacts/contacts-slice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -8,9 +8,9 @@ import { useDispatch } from 'react-redux';
 const ContactList = () => {
 
   const dispatch = useDispatch();
-  const allContacts = useSelector(getAllContacts);
+  const contacts = useSelector(getFilteredContacts);
 
-  const contact = allContacts.map(({ id, name, number }) => (
+  const contact = contacts.map(({ id, name, number }) => (
     <li key={id} className={styles.list_item}>
       <p className={styles.item_text}>{name}: </p>
       <span>{number}</span>

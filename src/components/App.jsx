@@ -39,8 +39,9 @@ const App = () => {
     dispatch(action);
   };
 
-  const onFilterInputChange = evt =>
-    dispatch(setFilter(evt.currentTarget.value));
+  const onFilterInputChange = evt => {
+    dispatch(setFilter(evt.target.value));
+  };
 
   return (
     <div className={styles.wrapper}>
